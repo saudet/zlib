@@ -35,6 +35,21 @@ case $PLATFORM in
         make -j $MAKEJ
         make install
         ;;
+    linux-armhf)
+        CC="arm-linux-gnueabihf-gcc -fPIC" ./configure --prefix=.. --static
+        make -j $MAKEJ
+        make install
+        ;;
+    linux-arm64)
+        CC="aarch64-linux-gnu-gcc -fPIC" ./configure --prefix=.. --static
+        make -j $MAKEJ
+        make install
+        ;;
+    linux-ppc64le)
+        CC="powerpc64le-linux-gnu-gcc -fPIC" ./configure --prefix=.. --static
+        make -j $MAKEJ
+        make install
+        ;;
     linux-x86)
         CC="gcc -m32 -fPIC" ./configure --prefix=.. --static
         make -j $MAKEJ
